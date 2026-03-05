@@ -27,7 +27,7 @@ namespace WPFColorPicker
             set
             {
                 Background = new SolidColorBrush(value);
-                ColorChanged?.Invoke(this, value);
+                OnColorSelection?.Invoke(this, value);
                 field = value;
             }
         }
@@ -44,7 +44,7 @@ namespace WPFColorPicker
         /// </summary>
         /// <remarks>Subscribers can handle this event to respond to changes in the associated color. The
         /// event handler receives the new color as an argument.  </remarks>
-        public event EventHandler<Color>? ColorChanged;
+        public event EventHandler<Color>? OnColorSelection;
 
 
         /// <summary>

@@ -6,6 +6,10 @@
     <UseWPF>true</UseWPF>
 	  <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>WPFColorPickerButton</Title>
   </PropertyGroup>
+	
+	
 
 </Project>
