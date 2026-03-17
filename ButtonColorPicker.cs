@@ -11,13 +11,13 @@ namespace WPFColorPicker
     public class ButtonColorPicker : System.Windows.Controls.Button
     {
 
-     /// <summary>
-     /// Gets or sets the currently selected color. Changing this property updates the background color and raises the
-     /// ColorChanged event.
-     /// </summary>
-     /// <remarks>The SelectedColor property allows users to specify a color that will be reflected in the
-     /// background. When the color is changed, the ColorChanged event is triggered, allowing subscribers to respond to
-     /// the change.</remarks>
+        /// <summary>
+        /// Gets or sets the currently selected color. Changing this property updates the background color and raises the
+        /// ColorChanged event.
+        /// </summary>
+        /// <remarks>The SelectedColor property allows users to specify a color that will be reflected in the
+        /// background. When the color is changed, the ColorChanged event is triggered, allowing subscribers to respond to
+        /// the change.</remarks>
         public Color SelectedColor
         {
             get
@@ -57,9 +57,12 @@ namespace WPFColorPicker
         public void OpenColorDialog()
         {
             ColorDialog cd = new();
-            cd.ShowDialog();
-            var cs = cd.Color;
-            SelectedColor = Color.FromArgb(cs.A, cs.R, cs.G, cs.B);
+            cd.AllowFullOpen = true;
+            DialogResult dr = cd.ShowDialog();
+            if (dr == DialogResult.OK || dr == DialogResult.Yes)
+            {
+               SelectedColor = Color.FromArgb(cd.Color.A, cd.Color.R, cd.Color.G, cd.Color.B);
+            }
         }
     }
 }
